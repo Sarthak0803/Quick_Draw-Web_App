@@ -1,0 +1,22 @@
+body
+{
+    background: linear-gradient(BlanchedAlmond 0%, orange 20%, Coral 50%, Brown 100% );
+}
+
+#score
+{
+    font-size: 30px;
+    margin-left: 20px;
+}
+
+#timer
+{
+    font-size: 30px;
+    float: right;
+    margin-right: 20px;
+}
+
+#sketch_to_be_drawn
+{
+    color: red;
+}
