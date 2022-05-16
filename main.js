@@ -11,3 +11,51 @@ draw_sketch = "";
 answer_holder = "";
 score = 0;
 
+function updateCanvas()
+{
+    background("white");
+    console.log(quick_draw_data_set[random_no]);
+    sketch = quick_draw_data_set[random_no];
+    document.getElementById("sketch_to_be_drawn").innerHTML = sketch;
+}
+
+function setup()
+{
+    canvas = createCanvas(280, 280);
+    canvas.center();
+    background("white");
+}
+
+function draw()
+{
+    strokeWeight(15);
+    stroke(0);
+    if(mouseIsPressed)
+    {
+        line(pmouseX, pmouseY, mouseX, mouseY);
+    }
+    check_sketch();
+    if(draw_sketch == sketch)
+    {
+        answer_holder = "set";
+        score++;
+        document.getElementById("score").innerHTML = "score" + score;
+    }
+}
+
+function check_sketch()
+{
+    timer_counter++;
+    document.getElementById("timer").innerHTML = "time = " + timer_counter;
+    if(timer_counter > 500)
+    {
+        timer_counter = 0;
+        timer_check = "completed";
+    }
+    if(timer_check == "completed" || answer_holder == "set")
+    {
+        timer_check = "";
+        answer_holder = "";
+        updateCanvas();
+    }
+}
